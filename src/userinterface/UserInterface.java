@@ -64,6 +64,11 @@ public class UserInterface implements Runnable {
         visualizationPanel.add(label);
         return visualizationPanel;
     }
+    
+    public JLabel createLabel(){
+        this.label=new JLabel();
+        return label;
+    }
 
     public JFrame getFrame() {
         return this.frame;
