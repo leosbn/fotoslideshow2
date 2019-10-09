@@ -80,6 +80,13 @@ public class UserInterface implements Runnable {
         return this.panelWithLabels;
     }
 
+    /**
+     * creates the second JPanel, the one with the appropriate number of labels
+     * inside. perhaps with some work its functions can be transfered to the
+     * first method so that this can be deleted
+     *
+     * @return
+     */
     public JPanel createVisualizationArea3() {
         this.panelWithLabels.updateUI();
         for (int i = 0; i < this.labelsToBeCreatedNumber; i++) {
@@ -109,11 +116,13 @@ public class UserInterface implements Runnable {
         return this.textField.getText();
     }
 
+    /**
+     * this method gets the information on how many labels have to be created
+     * from the action call
+     *
+     * @param number
+     */
     public void setNumberOfLabels(int number) {
         this.labelsToBeCreatedNumber = number;
-    }
-
-    public JPanel getPanelWithMultipleLabels() {
-        return this.panelWithLabels;
     }
 }

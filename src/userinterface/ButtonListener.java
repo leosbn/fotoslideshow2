@@ -16,7 +16,6 @@ import javax.swing.BorderFactory;
 public class ButtonListener implements ActionListener {
 
     private JTextField textField;
-    private JLabel label;
     private JPanel panel;
     private int numberOfLabels;
     private UserInterface ui;
@@ -28,7 +27,13 @@ public class ButtonListener implements ActionListener {
         this.panel = panel;
     }
 
-    @Override
+    /**
+     * actions performed so far: gets the folder, gets number of objects in the
+     * images list, transfers number to the user interface calls the method that
+     * rebuilds the UI panel with the appropriate number of labels
+     *
+     * @param e
+     */
     public void actionPerformed(ActionEvent e) {
         this.folder = new Folder(this.ui.getTextField());
         this.numberOfLabels = this.folder.getFolderNumberOfImages();
