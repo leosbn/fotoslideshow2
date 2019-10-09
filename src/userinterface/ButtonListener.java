@@ -32,9 +32,8 @@ public class ButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         this.folder = new Folder(this.ui.getTextField());
         this.numberOfLabels = this.folder.getFolderNumberOfImages();
-        //this.ui.setLabel(Integer.toString(numberOfLabels));
         this.ui.setNumberOfLabels(numberOfLabels);
-        
+        this.ui.createVisualizationArea3();
     }
 
     public int getImagesNumber() {
