@@ -13,6 +13,7 @@ public class Main {
         //C:\Users\Leonardo Sibani\Pictures\Social Media - da pubblicare\promo sci
         //Folder e = new Folder("C:\\Users\\Leonardo Sibani\\Pictures\\Social Media - da pubblicare\\promo sci");
         //System.out.println(e.getFolderNumberOfImages());
+        //System.out.println(e.getListImagesOnly());
     }
 
 }

@@ -40,8 +40,10 @@ public class Folder extends File {
     }
 
     public int getFolderNumberOfImages() {
-        addAllFiles();
-        addImages();
         return this.imagesOnly.size();
+    }
+    
+    public List<File> getListImagesOnly(){
+        return this.imagesOnly;
     }
 }
