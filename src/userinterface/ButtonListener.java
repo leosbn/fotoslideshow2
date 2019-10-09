@@ -17,21 +17,24 @@ public class ButtonListener implements ActionListener {
 
     private JTextField textField;
     private JLabel label;
+    private JPanel panel;
     private int numberOfLabels;
     private UserInterface ui;
     private Folder folder;
 
-    public ButtonListener(UserInterface ui, JTextField textArea, JLabel label) {
+    public ButtonListener(UserInterface ui, JTextField textArea, JPanel panel) {
         this.ui = ui;
         this.textField = textArea;
-        this.label = label;
+        this.panel = panel;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.folder=new Folder(this.ui.getTextField());
+        this.folder = new Folder(this.ui.getTextField());
         this.numberOfLabels = this.folder.getFolderNumberOfImages();
-        this.ui.setLabel(Integer.toString(numberOfLabels));
+        //this.ui.setLabel(Integer.toString(numberOfLabels));
+        this.ui.setNumberOfLabels(numberOfLabels);
+        
     }
 
     public int getImagesNumber() {

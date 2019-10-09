@@ -10,6 +10,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.WindowConstants;
 import java.awt.Container;
+import java.util.List;
+import java.util.ArrayList;
 import fotoslideshow.objects.*;
 
 public class UserInterface implements Runnable {
@@ -20,6 +22,8 @@ public class UserInterface implements Runnable {
     private JLabel label;
     private JTextField textField;
     private JButton button;
+    private int labelsToBeCreatedNumber;
+    private List<JLabel> labelsToBeCreated;
 
     public UserInterface() {
         WIDTH = 1200;
@@ -43,7 +47,7 @@ public class UserInterface implements Runnable {
         //JLabel label = new JLabel();
         //button.addActionListener(new ButtonListener(textField, label));
         container.add(createSearchArea(), BorderLayout.NORTH);
-        container.add(createVisualizationArea(), BorderLayout.CENTER);
+        container.add(createVisualizationArea2(), BorderLayout.CENTER);
     }
 
     public JPanel createSearchArea() {
@@ -54,7 +58,7 @@ public class UserInterface implements Runnable {
         searchPanel.add(this.textField);
         this.button = new JButton("Check current folder");
         searchPanel.add(button);
-        button.addActionListener(new ButtonListener(this, textField, label));
+        button.addActionListener(new ButtonListener(this, textField, createVisualizationArea2()));
         return searchPanel;
     }
 
@@ -65,8 +69,19 @@ public class UserInterface implements Runnable {
         return visualizationPanel;
     }
     
-    public JLabel createLabel(){
-        this.label=new JLabel();
+    public JPanel createVisualizationArea2(){
+        JPanel visualizationPanel2 = new JPanel();
+        //this.labelsToBeCreated = new ArrayList<JLabel>();
+        for(int i=0;i<this.labelsToBeCreatedNumber;i++){
+            JLabel label1 = new JLabel("a");
+            visualizationPanel2.add(label1);
+            //this.labelsToBeCreated.add(label);
+        }
+        return visualizationPanel2;
+    }
+
+    public JLabel createLabel() {
+        this.label = new JLabel();
         return label;
     }
 
@@ -81,5 +96,13 @@ public class UserInterface implements Runnable {
     public JLabel setLabel(String text) {
         this.label.setText(text);
         return this.label;
+    }
+
+    public void setNumberOfLabels(int number) {
+        this.labelsToBeCreatedNumber = number;
+    }
+
+    public int getNumberOfLabels() {
+        return this.labelsToBeCreatedNumber;
     }
 }
