@@ -14,6 +14,9 @@ import java.util.List;
 import java.io.File;
 import java.util.ArrayList;
 import fotoslideshow.objects.*;
+import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 
 public class UserInterface implements Runnable {
 
@@ -94,7 +97,9 @@ public class UserInterface implements Runnable {
     public JPanel createVisualizationArea3() {
         this.panelWithLabels.updateUI();
         for (int i = 0; i < this.labelsToBeCreatedNumber; i++) {
-            JLabel label1 = new JLabel("a");
+            ImageIcon img = new ImageIcon(this.listOfLinks.get(i).toString());
+            ImageIcon img2 = new ImageIcon(img.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+            JLabel label1 = new JLabel(img2);
             this.panelWithLabels.add(label1);
         }
         return this.panelWithLabels;
@@ -137,10 +142,12 @@ public class UserInterface implements Runnable {
      * @param originalList
      */
     public void addToListOfLinks(List<File> originalList) {
-        this.listOfLinks.addAll(listOfLinks);
+        for (File each : originalList) {
+            this.listOfLinks.add(each);
+        }
     }
-    
-    public List<File> getList(){
+
+    public List<File> getList() {
         return this.listOfLinks;
     }
 }

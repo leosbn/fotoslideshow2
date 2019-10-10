@@ -36,10 +36,9 @@ public class ButtonListener implements ActionListener {
      */
     public void actionPerformed(ActionEvent e) {
         this.folder = new Folder(this.ui.getTextField());
-        this.numberOfLabels = this.folder.getFolderNumberOfImages();
+        this.numberOfLabels = this.folder.getListImagesOnly().size();
         this.ui.setNumberOfLabels(numberOfLabels);
         this.ui.addToListOfLinks(this.folder.getListImagesOnly());
-        //line of code above doesn't add the files as expected, still have to test it
         this.ui.createVisualizationArea3();
     }
 
