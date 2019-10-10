@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import javax.swing.WindowConstants;
 import java.awt.Container;
 import java.util.List;
+import java.io.File;
 import java.util.ArrayList;
 import fotoslideshow.objects.*;
 
@@ -24,10 +25,13 @@ public class UserInterface implements Runnable {
     private JButton button;
     private int labelsToBeCreatedNumber;
     private JPanel panelWithLabels;
+    //creating a list that can hold values from the original list in Folder
+    private List<File> listOfLinks;
 
     public UserInterface() {
         WIDTH = 1200;
         HEIGHT = 900;
+        this.listOfLinks = new ArrayList<>();
     }
 
     public void run() {
@@ -124,5 +128,19 @@ public class UserInterface implements Runnable {
      */
     public void setNumberOfLabels(int number) {
         this.labelsToBeCreatedNumber = number;
+    }
+
+    /**
+     * this method populates the list in this object with the instance of the
+     * original Folder
+     *
+     * @param originalList
+     */
+    public void addToListOfLinks(List<File> originalList) {
+        this.listOfLinks.addAll(listOfLinks);
+    }
+    
+    public List<File> getList(){
+        return this.listOfLinks;
     }
 }
