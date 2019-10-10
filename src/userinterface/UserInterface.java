@@ -98,7 +98,8 @@ public class UserInterface implements Runnable {
         this.panelWithLabels.updateUI();
         for (int i = 0; i < this.labelsToBeCreatedNumber; i++) {
             ImageIcon img = new ImageIcon(this.listOfLinks.get(i).toString());
-            ImageIcon img2 = new ImageIcon(img.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+            //line below to be edited. i must find a ration to fit images in a flowlayout in the main jpanel
+            ImageIcon img2 = new ImageIcon(img.getImage().getScaledInstance(img.getIconWidth()/this.listOfLinks.size(), img.getIconHeight()/this.listOfLinks.size(), Image.SCALE_SMOOTH));
             JLabel label1 = new JLabel(img2);
             this.panelWithLabels.add(label1);
         }
