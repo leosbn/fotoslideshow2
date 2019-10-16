@@ -42,7 +42,7 @@ public class Folder extends File {
      */
     private void addImages() {
         for (File file : this.folder) {
-            if (file.getAbsolutePath().substring(file.getAbsolutePath().length() - 4).matches(".jpg|.JPG|jpeg|JPEG|.bmp|.BMP|.tif|.TIF")) {
+            if (file.getAbsolutePath().substring(file.getAbsolutePath().length() - 4).matches(".jpg|.JPG|jpeg|JPEG|.bmp|.BMP|.tif|.TIF|.png|.PNG")) {
                 this.imagesOnly.add(file);
             }
         }
