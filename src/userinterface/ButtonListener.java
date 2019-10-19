@@ -3,15 +3,8 @@ package userinterface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JLabel;
-import java.util.List;
-import java.util.ArrayList;
 import fotoslideshow.objects.*;
-import java.awt.Color;
-import java.awt.Dimension;
-import javax.swing.BorderFactory;
 
 public class ButtonListener implements ActionListener {
 
@@ -35,11 +28,16 @@ public class ButtonListener implements ActionListener {
      * @param e
      */
     public void actionPerformed(ActionEvent e) {
-        this.folder = new Folder(this.ui.getTextField());
-        this.numberOfLabels = this.folder.getListImagesOnly().size();
-        this.ui.setNumberOfLabels(numberOfLabels);
-        this.ui.addToListOfLinks(this.folder.getListImagesOnly());
-        this.ui.createVisualizationArea3();
+        try {
+            this.folder = new Folder(this.ui.getTextField());
+            this.numberOfLabels = this.folder.getListImagesOnly().size();
+            this.ui.setNumberOfLabels(numberOfLabels);
+            this.ui.addToListOfLinks(this.folder.getListImagesOnly());
+            this.ui.createVisualizationArea3();
+        } catch (Exception ex) {
+            this.ui.createVisualizationArea4();
+//System.out.println("file not found or non valid");
+        }
     }
 
     public int getImagesNumber() {

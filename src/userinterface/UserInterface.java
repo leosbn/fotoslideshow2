@@ -13,17 +13,14 @@ import java.awt.Container;
 import java.util.List;
 import java.io.File;
 import java.util.ArrayList;
-import fotoslideshow.objects.*;
 import javax.swing.ImageIcon;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 
 public class UserInterface implements Runnable {
 
     private JFrame frame;
     private final int WIDTH;
     private final int HEIGHT;
-    private JLabel label;
     private JTextField textField;
     private JButton button;
     private int labelsToBeCreatedNumber;
@@ -37,6 +34,7 @@ public class UserInterface implements Runnable {
         this.listOfLinks = new ArrayList<>();
     }
 
+    @Override
     public void run() {
         this.frame = new JFrame("FotoSlideShow");
         this.frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -84,6 +82,13 @@ public class UserInterface implements Runnable {
             JLabel label1 = new JLabel("a");
             this.panelWithLabels.add(label1);
         }
+        return this.panelWithLabels;
+    }
+    
+    public JPanel createVisualizationArea4() {
+        this.panelWithLabels.updateUI();
+        JLabel exceptionHandler = new JLabel("Please insert a valid path");
+        this.panelWithLabels.add(exceptionHandler);
         return this.panelWithLabels;
     }
 

@@ -9,7 +9,7 @@ public class Folder extends File {
     private List<File> folder;
     private List<File> imagesOnly;
 
-    public Folder(String path) {
+    public Folder(String path) throws Exception {
         super(path);
         this.folder = new ArrayList<File>();
         addAllFiles();
