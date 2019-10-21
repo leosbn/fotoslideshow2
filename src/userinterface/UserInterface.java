@@ -87,7 +87,7 @@ public class UserInterface implements Runnable {
     
     public JPanel createVisualizationArea4() {
         this.panelWithLabels.updateUI();
-        JLabel exceptionHandler = new JLabel("Please insert a valid path");
+        JLabel exceptionHandler = new JLabel("Please insert a valid path ");
         this.panelWithLabels.add(exceptionHandler);
         return this.panelWithLabels;
     }

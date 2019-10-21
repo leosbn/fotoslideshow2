@@ -13,11 +13,13 @@ public class ButtonListener implements ActionListener {
     private int numberOfLabels;
     private UserInterface ui;
     private Folder folder;
+    private boolean hasNotBeenClicked;
 
     public ButtonListener(UserInterface ui, JTextField textArea, JPanel panel) {
         this.ui = ui;
         this.textField = textArea;
         this.panel = panel;
+        this.hasNotBeenClicked = true;
     }
 
     /**
@@ -28,20 +30,22 @@ public class ButtonListener implements ActionListener {
      * @param e
      */
     public void actionPerformed(ActionEvent e) {
-        try {
-            this.folder = new Folder(this.ui.getTextField());
-            this.numberOfLabels = this.folder.getListImagesOnly().size();
-            this.ui.setNumberOfLabels(numberOfLabels);
-            this.ui.addToListOfLinks(this.folder.getListImagesOnly());
-            this.ui.createVisualizationArea3();
-        } catch (Exception ex) {
-            this.ui.createVisualizationArea4();
-//System.out.println("file not found or non valid");
+        if (hasNotBeenClicked == true) {
+            try {
+                this.folder = new Folder(this.ui.getTextField());
+                this.numberOfLabels = this.folder.getListImagesOnly().size();
+                this.ui.setNumberOfLabels(numberOfLabels);
+                this.ui.addToListOfLinks(this.folder.getListImagesOnly());
+                this.ui.createVisualizationArea3();
+                this.hasNotBeenClicked = false;
+            } catch (Exception ex) {
+                this.ui.createVisualizationArea4();
+                this.hasNotBeenClicked = false;
+            }
         }
     }
 
     public int getImagesNumber() {
         return this.numberOfLabels;
     }
-
 }
